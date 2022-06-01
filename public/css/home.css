@@ -9,3 +9,8 @@ html, body{
 .navbar{
     background-color: rgb(206, 225, 235);
 }
+
+.btn{
+    outline: none;
+    border: none;
+}

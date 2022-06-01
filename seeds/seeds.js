@@ -1,24 +1,31 @@
 const mongoose = require('mongoose');
 const fetch = require('node-fetch');
-const Project = require('./models/projects.js');
+const Project = require('../models/projects');
 mongoose
 	.connect('mongodb://localhost:27017/projectData', {
 		useNewUrlParser    : true,
 		useUnifiedTopology : true
 	})
 	.then((result) => {
-		console.log("We'r connected");
+		console.log("Database is connected");
 	})
 	.catch((err) => {
-		console.log('OH NO not good');
+		console.log('OH no!!!, some error might have occured');
 		console.log(err);
 	});
+
+	// deleting existing data in the database
 const seedDB = async () => {
 	await Project.deleteMany({});
+	
 };
 
+
+// seedDB();
+
+
 var dataArray = [];
-var data = require('fs').readFileSync('project.csv', 'utf8');
+var data = require('fs').readFileSync('./csvfile/project.csv', 'utf8');
 const rows = data.split('\n');
 rows.forEach((row) => {
 	const column = row.split(',');

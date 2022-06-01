@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-const projectSchema = new mongoose.Schema({
-	roll     : {
+const ProjectSchema = new mongoose.Schema({
+	roll   : {
 		type     : String,
 		required : true
 	},
@@ -19,6 +19,6 @@ const projectSchema = new mongoose.Schema({
 	}
 });
 
-const Project = mongoose.model('Project', projectSchema);
+const Project = mongoose.model('Project', ProjectSchema);
 
 module.exports = Project;
